@@ -36,7 +36,6 @@ def source_pars(url='http://172.16.160.53:8020/modem/status.jsp?id=RU0', url_onl
 
         imgTpi = soup.img['src']
         urlImgTpi = 'http://172.16.160.53:8020' + str(imgTpi).replace('.','')
-        print(urlImgTpi)
         timeTpi = soup.find_all('td')[1].get_text()
         a = timeTpi.split(' ')[0]
         convertToTime = datetime.strptime(a, "%Y-%m-%d")

@@ -7,5 +7,4 @@ from parsertpi import source_pars
 @app.route('/')
 def index():
     tpiData = source_pars()
-    print(tpiData)
     return render_template('index.html', tpiData=tpiData)
