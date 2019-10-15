@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TPI-Maps</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=91c15659-fe51-45c9-9b4c-12f6771a3e0b&lang=ru_RU" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        ymaps.ready(init);    
+function init(){ 
+    var myMap = new ymaps.Map("map", {
+        center: [43.56, 39.84],
+        zoom: 11
+    });
+myMap.geoObjects
+    .add(new ymaps.Placemark([{{tpiData[0].gpsX}}, {{tpiData[0].gpsY}}], {
+        balloonContent: '<img src="{{tpiData[0].image}}" height="104" width="146"> <br/> ' +
+        '{{tpiData[0].voltage}}',
+        iconCaption: '{{tpiData[0].id}}'
+    }, {
+        preset: 'islands#{{tpiData[0].color}}DotIconWithCaption'
+    }))
+    .add(new ymaps.Placemark([{{tpiData[1].gpsX}}, {{tpiData[1].gpsY}}], {
+        balloonContent: '<img src="{{tpiData[1].image}}" height="104" width="146"> <br/> ' +
+        '{{tpiData[1].voltage}}',
+        iconCaption: '{{tpiData[1].id}}'
+    }, {
+        preset: 'islands#{{tpiData[1].color}}DotIconWithCaption'
+    }))
+    .add(new ymaps.Placemark([{{tpiData[2].gpsX}}, {{tpiData[2].gpsY}}], {
+        balloonContent: '<img src="{{tpiData[2].image}}" height="104" width="146"> <br/> ' +
+        '{{tpiData[2].voltage}}',
+        iconCaption: '{{tpiData[2].id}}'
+    }, {
+        preset: 'islands#{{tpiData[2].color}}DotIconWithCaption'
+    }))
+    .add(new ymaps.Placemark([{{tpiData[3].gpsX}}, {{tpiData[3].gpsY}}], {
+        balloonContent: '<img src="{{tpiData[3].image}}" height="104" width="146"> <br/> ' +
+        '{{tpiData[3].voltage}}',
+        iconCaption: '{{tpiData[3].id}}'
+    }, {
+        preset: 'islands#{{tpiData[3].color}}DotIconWithCaption'
+    }))
+    //.add(new ymaps.Placemark([{{tpiData[4].gpsX}}, {{tpiData[4].gpsY}}], {
+    //    balloonContent: '<img src="{{tpiData[4].image}}" height="104" width="146"> <br/> ' +
+    //    '{{tpiData[4].voltage}}',
+    //    iconCaption: '{{tpiData[4].id}}'
+    //},{
+    //    preset: 'islands#{{tpiData[4].color}}DotIconWithCaption'
+    //}))
+    .add(new ymaps.Placemark([{{tpiData[5].gpsX}}, {{tpiData[5].gpsY}}], {
+        balloonContent: '<img src="{{tpiData[5].image}}" height="104" width="146"> <br/> ' +
+        '{{tpiData[5].voltage}}',
+        iconCaption: '{{tpiData[5].id}}'
+    }, {
+        preset: 'islands#{{tpiData[5].color}}DotIconWithCaption'
+    }))
+    .add(new ymaps.Placemark([{{tpiData[6].gpsX}}, {{tpiData[6].gpsY}}], {
+        balloonContent: '<img src="{{tpiData[6].image}}" height="104" width="146"> <br/> ' +
+        '{{tpiData[6].voltage}}',
+        iconCaption: '{{tpiData[6].id}}'
+    }, {
+        preset: 'islands#{{tpiData[6].color}}DotIconWithCaption'
+    }))
+    .add(new ymaps.Placemark([{{tpiData[7].gpsX}}, {{tpiData[7].gpsY}}], {
+        balloonContent: '<img src="{{tpiData[7].image}}" height="104" width="146"> <br/> ' +
+        '{{tpiData[7].voltage}}',
+        iconCaption: '{{tpiData[7].id}}'
+    }, {
+        preset: 'islands#{{tpiData[7].color}}DotIconWithCaption'
+    }))
+    .add(new ymaps.Placemark([{{tpiData[8].gpsX}}, {{tpiData[8].gpsY}}], {
+        balloonContent: '<img src="{{tpiData[8].image}}" height="104" width="146"> <br/> ' +
+        '{{tpiData[8].voltage}}',
+        iconCaption: '{{tpiData[8].id}}'
+    }, {
+        preset: 'islands#{{tpiData[8].color}}DotIconWithCaption'
+    }))
+    .add(new ymaps.Placemark([{{tpiData[9].gpsX}}, {{tpiData[9].gpsY}}], {
+        balloonContent: '<img src="{{tpiData[9].image}}" height="104" width="146"> <br/> ' +
+        '{{tpiData[9].voltage}}',
+        iconCaption: '{{tpiData[9].id}}'
+    }, {
+        preset: 'islands#{{tpiData[9].color}}DotIconWithCaption'
+    }))
+    .add(new ymaps.Placemark([{{tpiData[10].gpsX}}, {{tpiData[10].gpsY}}], {
+        balloonContent: '<img src="{{tpiData[10].image}}" height="104" width="146"> <br/> ' +
+        '{{tpiData[10].voltage}}',
+        iconCaption: '{{tpiData[10].id}}'
+    }, {
+        preset: 'islands#{{tpiData[10].color}}DotIconWithCaption'
+    }))
+    .add(new ymaps.Placemark([{{tpiData[11].gpsX}}, {{tpiData[11].gpsY}}], {
+        balloonContent: '<img src="{{tpiData[11].image}}" height="104" width="146"> <br/> ' +
+        '{{tpiData[11].voltage}}',
+        iconCaption: '{{tpiData[11].id}}'
+    }, {
+        preset: 'islands#{{tpiData[11].color}}DotIconWithCaption'
+    }))
+    .add(new ymaps.Placemark([{{tpiData[12].gpsX}}, {{tpiData[12].gpsY}}], {
+        balloonContent: '<img src="{{tpiData[12].image}}" height="104" width="146"> <br/> ' +
+        '{{tpiData[12].voltage}}',
+        iconCaption: '{{tpiData[12].id}}'
+    }, {
+        preset: 'islands#{{tpiData[12].color}}DotIconWithCaption'
+    }))
+    .add(new ymaps.Placemark([{{tpiData[13].gpsX}}, {{tpiData[13].gpsY}}], {
+        balloonContent: '<img src="{{tpiData[13].image}}" height="104" width="146"> <br/> ' +
+        '{{tpiData[13].voltage}}',
+        iconCaption: '{{tpiData[13].id}}'
+    }, {
+        preset: 'islands#{{tpiData[13].color}}DotIconWithCaption'
+    }));
+}
+
+    </script>
+</head>
+
+<body>
+        
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Карта ТПИ</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Обновить <span class="sr-only">(current)</span></a>
+                </li>
+                <!--<li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li> -->
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div id="map" style="width: 1280px; height: 720px"></div>
+
+   <!-- <h3>Hello, {{n}}</h3> -->
+    
+    
+</body>
+
+</html>
