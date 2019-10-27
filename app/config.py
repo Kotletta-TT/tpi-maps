@@ -1,5 +1,5 @@
-## -*- coding: utf-8 -*-
 class Configuration(object):
 
     DEBUG = True
-    host = '0.0.0.0'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://dbuser:dbpass@localhost/dbmaps'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False

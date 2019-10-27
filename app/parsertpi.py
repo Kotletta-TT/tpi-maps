@@ -9,18 +9,61 @@ url_online = 'http://172.16.160.53:8020/modem/index.jsp'
 work_tpi = [41,42,43,44,45,47,48,50,52,53,55,56,57,58]
 currentDate = datetime.today()
 
-def source_pars(url='http://172.16.160.53:8020/modem/status.jsp?id=RU0', url_online='http://172.16.160.53:8020/modem/index.jsp'):
+
+def check_online(url_online='http://172.16.160.53:8020/modem/index.jsp'):
+
+    reqOnline = requests.get(url_online)
+    onlSoup = BeautifulSoup(reqOnline.content, 'lxml')
+
+    #====== ТРЕТЬЯ Версия =======
+    result = [{"id": tr.contents[1].get_text().split(' ')[1], "status": tr.contents[5].get_text()} for tr in onlSoup.find_all("tr")[1:]]
+    print(result)
+
+    # ====== ВТОРАЯ Версия ======
+    # tuplOnline = []
+    #
+    # getOnline = onlSoup.find_all('tr')[1:]
+    # for tr in getOnline:
+    #     tds = tr.find_all('td')
+    #
+    #     name = tds[0].getText()
+    #     status = tds[2].getText()
+    #     tuplOnline.append({
+    #         'id': name,
+    #         'status': status,
+    #     })
+    # return tuplOnline
+
+
+
+
+    # ===== ПЕРВАЯ Версия =====
+    #
+    # for i in work_tpi:
+    #     ruId.append('RU0' + str(i))
+    #
+    # for i in getOnline:
+    #     if 'Modem' in i.text:
+    #         tempId.append(i.text.split(' ')[1])
+    #
+    # result = list(set(ruId) & set(tempId))
+    # print(result)
+    #
+    #     elif 'ONLINE' in i.text:
+    #         status = 'ONLINE'
+    #         dictOnl = {'id': tempId,
+    #                    'status': status}
+    #     elif 'OFFLINE' in i.text:
+    #         status = 'OFFLINE'
+    #         dictOnl = {'id': tempId,
+    #                    'status': status}
+    #         tuplOnline.append(dictOnl)
+    #         print(tuplOnline)
+
+
+def source_pars(url='http://172.16.160.53:8020/modem/status.jsp?id=RU0'):
     tuplTpi = []
 
-    #Попытка парсинга страницы онлайн/офлайн табло
-    #Позже...
-    # reqOnline = requests.get(url_online)
-    # onlSoup = BeautifulSoup(reqOnline.content, 'lxml')
-    # getOnline = onlSoup.find_all('td', text='style')#.find_next_sibling('td')
-    # #print(getOnline)
-    # for i in getOnline:
-    #     print(i)
-    #
     for id in work_tpi:
 
         request = requests.get(url+str(id))
@@ -54,6 +97,7 @@ def source_pars(url='http://172.16.160.53:8020/modem/status.jsp?id=RU0', url_onl
                    'color': color,
                    'image': urlImgTpi}
         tuplTpi.append(TpiInf)
+    print(tuplTpi)
 
     return tuplTpi
 
@@ -62,4 +106,5 @@ def viewByTime():
 
 
 if __name__ == '__main__':
-    source_pars(url, url_online)
+    source_pars(url)
+    check_online(url_online)
