@@ -9,6 +9,8 @@ class Tpi(db.Model):
     gpsY = db.Column(db.Float)
     voltage = db.Column(db.Float)
     timetpi = db.Column(db.DateTime, default=datetime.now())
+    color = db.Column(db.String(10))
+    status = db.Column(db.String(8))
 
 
     def __init__(self, *args, **kwargs):

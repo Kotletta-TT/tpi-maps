@@ -8,12 +8,23 @@ TPI-MAPS
 myMap.geoObjects
 
     {% for marker in tpiData %}
-    .add(new ymaps.Placemark([{{marker.gpsX}}, {{marker.gpsY}}], {
-        balloonContent: '{{marker.voltage}}',
-        iconCaption: '{{marker.name}}'
-    }, {
-        preset: 'islands#greenDotIconWithCaption'
-    }))
+        {% if marker.status == 'ONLINE' %}
+            .add(new ymaps.Placemark([{{marker.gpsX}}, {{marker.gpsY}}], {
+            balloonContent: '{{marker.voltage}}',
+            iconCaption: '{{marker.name}}'
+            }, {
+            preset: 'islands#{{marker.color}}DotIconWithCaption'
+            }))
+        {% elif marker.status == 'OFFLINE' and marker.color == 'black' %}
+            {% continue %}
+        {% else %}
+            .add(new ymaps.Placemark([{{marker.gpsX}}, {{marker.gpsY}}], {
+            balloonContent: '{{marker.voltage}}',
+            iconCaption: '{{marker.name}}'
+            }, {
+            preset: 'islands#{{'red'}}DotIconWithCaption'
+            }))
+        {% endif %}
     {% endfor %}
 ;
 {% endblock %}
