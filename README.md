@@ -8,8 +8,8 @@ This is web application view-maps(YandexMaps Api 2.1) works led-board informatio
 
 - Flask start web application
 - Run async web-scrapping(HTML+XML) answer led-board
-- Added data to DB (PostgreSQL)
-- Sorted data in DB and repeat web-scrapping 10 minutes
+- Add data to DB (PostgreSQL)
+- Sort data in DB and repeat web-scrapping 10 minutes
 - Request from user
 - Build index.html to template, using DB
 - View and enjoy!
