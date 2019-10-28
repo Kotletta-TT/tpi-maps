@@ -17,7 +17,7 @@ def check_online(url_online='http://172.16.160.53:8020/modem/index.jsp'):
 
     #====== ТРЕТЬЯ Версия =======
     result = [{"id": tr.contents[1].get_text().split(' ')[1], "status": tr.contents[5].get_text()} for tr in onlSoup.find_all("tr")[1:]]
-    print(result)
+    return result
 
     # ====== ВТОРАЯ Версия ======
     # tuplOnline = []
@@ -71,7 +71,7 @@ def source_pars(url='http://172.16.160.53:8020/modem/status.jsp?id=RU0'):
         get_xemel = soup.find('pre').get_text()
 
         xemel = BeautifulSoup(get_xemel, 'lxml-xml')
-
+        # print(xemel.getText())
         id = xemel.id.get_text()
         voltage = float(xemel.voltage.get_text()) / 1000
         x = float(xemel.gpsposition.y.get_text())
@@ -97,7 +97,18 @@ def source_pars(url='http://172.16.160.53:8020/modem/status.jsp?id=RU0'):
                    'color': color,
                    'image': urlImgTpi}
         tuplTpi.append(TpiInf)
-    print(tuplTpi)
+
+    statusTpi = check_online(url_online)
+
+    for i in tuplTpi:
+        id = i['id']
+        for j in statusTpi:
+            if j['id'] == id:
+                tuplTpi[tuplTpi.index(i)]['status'] = statusTpi[statusTpi.index(j)]['status']
+
+    for i in tuplTpi:
+        print(i)
+
 
     return tuplTpi
 
@@ -107,4 +118,4 @@ def viewByTime():
 
 if __name__ == '__main__':
     source_pars(url)
-    check_online(url_online)
+    #check_online(url_online)
