@@ -30,7 +30,7 @@ need dependence to project can take:
 
 `pip install -r requirements.txt`
 
-We are need install additional library:
+You are need install additional library:
 
 `sudo apt-get install libpq-dev`
 `sudo apt-get install python3-dev`
